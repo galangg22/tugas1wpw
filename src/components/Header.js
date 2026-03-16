@@ -1,18 +1,15 @@
-import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-export default function AppHeader() {
+function AppHeader() {
   return (
-    // fixed="top" supaya nempel terus pas di-scroll, bg="white" biar bersih
-    <Navbar bg="white" expand="lg" fixed="top" className="navbar-custom shadow-sm">
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home" className="fw-bold fs-4">CORPORATE</Navbar.Brand>
+        <Navbar.Brand href="#home">Corporate</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* ms-auto itu kunci agar menu lari ke KANAN persis video */}
-          <Nav className="ms-auto text-uppercase">
+          <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
             <Nav.Link href="#services">Services</Nav.Link>
@@ -28,3 +25,5 @@ export default function AppHeader() {
     </Navbar>
   );
 }
+
+export default AppHeader;

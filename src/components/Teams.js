@@ -1,73 +1,129 @@
-import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
-// Data dummy (Array) untuk profil 3 anggota tim
 const teamsData = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
+    image: require('../assets/images/team1.jpg'),
     fbLink: 'https://www.facebook.com',
     twitterLink: 'https://www.twitter.com',
     linkedinLink: 'https://www.linkedin.com',
-    name: 'Sarah Willis',
+    name: 'Gabriel Hart',
     designation: 'CEO',
-    description: 'Pemimpin visioner dengan pengalaman lebih dari 15 tahun membangun startup teknologi kelas dunia.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop',
+    image: require('../assets/images/team2.jpg'),
     fbLink: 'https://www.facebook.com',
     twitterLink: 'https://www.twitter.com',
     linkedinLink: 'https://www.linkedin.com',
-    name: 'Michael Doe',
-    designation: 'Lead Developer',
-    description: 'Ahli arsitektur perangkat lunak yang memastikan semua sistem berjalan dengan performa maksimal.'
+    name: 'David Antony',
+    designation: 'Manager',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop',
+    image: require('../assets/images/team3.jpg'),
     fbLink: 'https://www.facebook.com',
     twitterLink: 'https://www.twitter.com',
     linkedinLink: 'https://www.linkedin.com',
-    name: 'Elena Smith',
+    name: 'Nicholas Perry',
     designation: 'UX Designer',
-    description: 'Pakar psikologi pengguna yang merancang antarmuka paling intuitif dan memanjakan mata.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
+  },
+  {
+    id: 4,
+    image: require('../assets/images/team4.jpg'),
+    fbLink: 'https://www.facebook.com',
+    twitterLink: 'https://www.twitter.com',
+    linkedinLink: 'https://www.linkedin.com',
+    name: 'Sarah Wills',
+    designation: 'Developer',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
+  },
+  {
+    id: 5,
+    image: require('../assets/images/team5.jpg'),
+    fbLink: 'https://www.facebook.com',
+    twitterLink: 'https://www.twitter.com',
+    linkedinLink: 'https://www.linkedin.com',
+    name: 'Sophia Pitt',
+    designation: 'Developer',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
+  },
+  {
+    id: 6,
+    image: require('../assets/images/team6.jpg'),
+    fbLink: 'https://www.facebook.com',
+    twitterLink: 'https://www.twitter.com',
+    linkedinLink: 'https://www.linkedin.com',
+    name: 'Taylor Lopez',
+    designation: 'Developer',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
+  },
+  {
+    id: 7,
+    image: require('../assets/images/team7.jpg'),
+    fbLink: 'https://www.facebook.com',
+    twitterLink: 'https://www.twitter.com',
+    linkedinLink: 'https://www.linkedin.com',
+    name: 'Ryan Giggs',
+    designation: 'Content Writer',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
+  },
+  {
+    id: 8,
+    image: require('../assets/images/team8.jpg'),
+    fbLink: 'https://www.facebook.com',
+    twitterLink: 'https://www.twitter.com',
+    linkedinLink: 'https://www.linkedin.com',
+    name: 'David Smith',
+    designation: 'SEO Expert',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui facilis, totam maiores.'
   }
-];
+]
 
-export default function AppTeams() {
+function AppTeams() {
   return (
-    <section id="teams" className="block teams-block" style={{ padding: '60px 0', backgroundColor: '#f8f9fa' }}>
-      <Container>
-        <div className="title-holder text-center mb-5">
-          <h2>Our Teams</h2>
-          <div className="subtitle text-muted">some of our experts</div>
+    <section id="teams" className="block teams-block">
+      <Container fluid>
+        <div className="title-holder">
+          <h2>Our teams</h2>
+          <div className="subtitle">some of our experts</div>
         </div>
-        
         <Row>
-          {/* Looping data anggota tim */}
-          {teamsData.map(teams => {
-            return (
-              <Col sm={4} key={teams.id} className='mb-4'>
-                <div className='image text-center mb-3'>
-                  {/* Gambar dibuat melingkar menggunakan class rounded-circle */}
-                  <Image src={teams.image} alt={teams.name} roundedCircle shadow-sm style={{ width: '150px', height: '150px' }} />
-                  <div className='overlay mt-3'>
-                    <a href={teams.fbLink} className="text-primary mx-2"><i className="fab fa-facebook-f fa-lg"></i></a>
-                    <a href={teams.twitterLink} className="text-info mx-2"><i className="fab fa-twitter fa-lg"></i></a>
-                    <a href={teams.linkedinLink} className="text-primary mx-2"><i className="fab fa-linkedin-in fa-lg"></i></a>
+          {
+            teamsData.map(teams => {
+              return (
+                <Col sm={3} key={teams.id}>
+                  <div className='image'>
+                    <Image src={teams.image} />
+                    <div className='overlay'>
+                      <div className='socials'>
+                        <ul>
+                          <li><a href={teams.fbLink}><i className="fab fa-facebook-f"></i></a></li>
+                          <li><a href={teams.twitterLink}><i className="fab fa-twitter"></i></a></li>
+                          <li><a href={teams.linkedinLink}><i className="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className='content text-center'>
-                  <h3 style={{ fontSize: '22px', fontWeight: 'bold' }}>{teams.name}</h3>
-                  <span className='designation text-danger fw-bold d-block mb-2'>{teams.designation}</span>
-                  <p className="text-muted">{teams.description}</p>
-                </div>
-              </Col>
-            );
-          })}
+                  <div className='content'>
+                    <h3>{teams.name}</h3>
+                    <span className='designation'>{teams.designation}</span>
+                    <p>{teams.description}</p>
+                  </div>
+                </Col>
+              );
+            })
+          }
         </Row>
       </Container>
     </section>
   );
 }
+
+export default AppTeams;
