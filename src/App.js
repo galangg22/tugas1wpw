@@ -4,12 +4,13 @@ import './App.css';
 
 import AppHeader from './components/Header';
 import AppHero from './components/Hero';
-// 1. Import komponen About
 import AppAbout from './components/About';
 import AppServices from './components/Services';
-import AppWorks from './components/Work';
+// Pastikan filenya memang "Work.js" atau "Works.js"
+import AppWorks from './components/Works'; 
 import AppTeams from './components/Teams';
-import AppTestimonials from './components/Testimonial';
+// Pastikan filenya memang "Testimonial.js" atau "Testimonials.js"
+import AppTestimonials from './components/Testimonial'; 
 import AppPricing from './components/Pricing';
 import AppBlog from './components/Blog';
 import AppContact from './components/Contact';
@@ -32,8 +33,10 @@ function App() {
         <AppPricing/>
         <AppBlog/>
         <AppContact/>
-        <AppFooter/>
       </main>
+
+      {/* Taruh Footer di luar main biar semantik HTML-nya benar */}
+      <AppFooter />
     </div>
   );
 }
