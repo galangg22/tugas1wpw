@@ -5,7 +5,7 @@ import AppHeader from './components/Header';
 import AppHero from './components/Hero';
 import AppAbout from './components/About';
 import AppServices from './components/Services';
-import AppWorks from './components/works';
+import AppWorks from './components/Works';
 import AppTeams from './components/Teams';
 import AppTestimonials from './components/Testimonial';
 import AppPricing from './components/Pricing';
