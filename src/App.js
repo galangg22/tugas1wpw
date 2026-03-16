@@ -1,49 +1,40 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
-import Home from './Home';
-import Dashboard from './Dashboard';
-import Login from './Login';
-
-// Komponen Layout untuk halaman yang butuh Navbar
-function LayoutDenganNavbar() {
-  return (
-    <>
-      <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
-        <Container>
-          <Navbar.Brand as={Link} to="/">xPENS</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Beranda</Nav.Link>
-              <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link as={Link} to="/login" className="text-warning">Login</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <Outlet /> {/* Tempat halaman anak di-render */}
-    </>
-  );
-}
+import AppHeader from './components/Header';
+import AppHero from './components/Hero';
+// 1. Import komponen About
+import AppAbout from './components/About';
+import AppServices from './components/Services';
+import AppWorks from './components/Work';
+import AppTeams from './components/Teams';
+import AppTestimonials from './components/Testimonial';
+import AppPricing from './components/Pricing';
+import AppBlog from './components/Blog';
+import AppContact from './components/Contact';
+import AppFooter from './components/Footer';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Grup rute dengan Navbar */}
-        <Route element={<LayoutDenganNavbar />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-
-        {/* Rute polosan tanpa Navbar */}
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <header id="header">
+        <AppHeader />
+      </header>
+      
+      <main>
+        <AppHero />
+        <AppAbout />
+        <AppServices/>
+        <AppWorks/>
+        <AppTeams/>
+        <AppTestimonials/>
+        <AppPricing/>
+        <AppBlog/>
+        <AppContact/>
+        <AppFooter/>
+      </main>
+    </div>
   );
 }
 
