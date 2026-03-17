@@ -1,27 +1,43 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import Container from 'react-bootstrap/Container';
 
-export default function AppFooter() {
+function AppFooter() {
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  useEffect(() => {
+      window.addEventListener("scroll", () => {
+          if (window.scrollY > 400) {
+              setShowTopBtn(true);
+          } else {
+              setShowTopBtn(false);
+          }
+      });
+  }, []);
+
+  function goTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
-    <footer id="footer" style={{ backgroundColor: '#212529', color: '#fff', padding: '40px 0' }}>
-      <Container fluid className="text-center">
-        <div className='copyright'>
-          &copy; 2026 Corporate Web Project. Dibuat oleh Galang - PENS.
-        </div>
-        <div className='socials mt-3'>
-          <ul className="list-inline mb-0">
-            <li className="list-inline-item mx-2">
-              <a href="https://www.facebook.com" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>
-            </li>
-            <li className="list-inline-item mx-2">
-              <a href="https://www.twitter.com" className="text-white"><i className="fab fa-twitter fa-lg"></i></a>
-            </li>
-            <li className="list-inline-item mx-2">
-              <a href="https://www.linkedin.com" className="text-white"><i className="fab fa-linkedin-in fa-lg"></i></a>
-            </li>
-          </ul>
-        </div>
-      </Container>
-    </footer>
-  );
+    <Container fluid>
+      <div className="copyright">&copy; 2022 Corporate. All Right Reserved.</div>
+      <div className="socials">
+        <ul>
+          <li><a href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.twitter.com"><i className="fab fa-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com"><i className="fab fa-linkedin-in"></i></a></li>
+        </ul>
+      </div>
+      {
+        showTopBtn && (
+          <div className="go-top" onClick={goTop}></div>
+        )
+      }
+    </Container>
+  )
 }
+
+export default AppFooter;
